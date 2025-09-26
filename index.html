@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty & Wellness Awards | Celebrating Excellence in Natural Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-green: #8a9a8a;
+            --light-green: #e8efe8;
+            --tan: #d4c9b9;
+            --dark-tan: #b8a992;
+            --linen: #f5f1eb;
+            --text-dark: #3a3a3a;
+            --text-light: #6a6a6a;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--linen);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-green);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-tan);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: var(--tan);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--dark-tan);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(212, 201, 185, 0.7), rgba(138, 154, 138, 0.7)), url('https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-dark);
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Why Enter Section */
+        .why-enter {
+            background-color: var(--white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: var(--light-green);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--linen);
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            right: -10%;
+            width: 20%;
+            height: 2px;
+            background-color: var(--tan);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: var(--white);
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background-color: var(--linen);
+            border-radius: 10px;
+            padding: 2rem;
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--primary-green);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--tan);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Product Showcase Section */
+        .product-showcase {
+            background-color: var(--linen);
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: var(--white);
+            border: 1px solid var(--tan);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: var(--tan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--primary-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .buy-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .buy-link:hover {
+            border-bottom: 1px solid var(--primary-green);
+        }
+
+        /* Judges Section */
+        .judges {
+            background-color: var(--white);
+        }
+
+        .judges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .judge-card {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--linen);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .judge-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 5px solid var(--tan);
+        }
+
+        .criteria-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .criteria-table th, .criteria-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--tan);
+        }
+
+        .criteria-table th {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+        }
+
+        /* Winners Section */
+        .winners {
+            background-color: var(--linen);
+        }
+
+        .winners-carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .winner-card {
+            min-width: 300px;
+            margin: 0 1rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--tan);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-dot.active {
+            background-color: var(--primary-green);
+        }
+
+        .spotlight-stories {
+            margin-top: 4rem;
+        }
+
+        .story-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .founder-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .founder-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        /* Community Section */
+        .community {
+            background-color: var(--white);
+        }
+
+        .community-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .video-container {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .video-placeholder {
+            background-color: var(--tan);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: var(--text-light);
+        }
+
+        .blog-posts {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .blog-card {
+            background-color: var(--linen);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .blog-card h3 {
+            color: var(--primary-green);
+        }
+
+        .read-more {
+            color: var(--primary-green);
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--linen);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            color: var(--tan);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light-green);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--tan);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-green);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--light-green);
+        }
+
+        /* Form Styles */
+        .form-container {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--tan);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Thank You Page Styles */
+        .thank-you {
+            text-align: center;
+            padding: 5rem 0;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thank-you-content {
+            max-width: 600px;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+            
+            .steps-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid var(--tan);
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .form-container {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-spa"></i> Beauty & Wellness Awards
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#why-enter">For Brands</a></li>
+                    <li><a href="index.html#product-showcase">For Shoppers</a></li>
+                    <li><a href="index.html#judges">Judges & Criteria</a></li>
+                    <li><a href="index.html#winners">Winners</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="submit.html" class="btn btn-outline">Submit Product</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Celebrating Excellence in Natural Beauty & Wellness</h1>
+                    <p>Discover the finest products that prioritize purity, sustainability, and effectiveness. Join our community of conscious consumers and innovative brands.</p>
+                    <div class="cta-buttons">
+                        <a href="submit.html" class="btn btn-primary">Enter Your Product</a>
+                        <a href="#product-showcase" class="btn btn-secondary">Shop Award Winners</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Enter Section -->
+        <section id="why-enter" class="section why-enter">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Enter the Beauty & Wellness Awards?</h2>
+                    <p>Gain recognition, boost credibility, and connect with conscious consumers</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Industry Recognition</h3>
+                        <p>Stand out in the competitive beauty and wellness market with a prestigious award that validates your product's quality.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Targeted Exposure</h3>
+                        <p>Reach thousands of conscious consumers actively seeking natural, effective beauty and wellness solutions.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Boost Sales</h3>
+                        <p>Award-winning products see an average 35% increase in sales and improved conversion rates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="section how-it-works">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How It Works</h2>
+                    <p>Simple three-step process to get your products evaluated</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Submit Your Product</h3>
+                        <p>Complete our easy online application and send us your products for evaluation.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Expert Evaluation</h3>
+                        <p>Our panel of industry experts rigorously tests and evaluates each submission.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Winners Announced</h3>
+                        <p>Celebrate your achievement and leverage your award for marketing success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section pricing">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Pricing & Packages</h2>
+                    <p>Choose the package that best fits your brand's needs</p>
+                </div>
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <h3>Basic Entry</h3>
+                        <div class="price">$299<span>/product</span></div>
+                        <ul class="pricing-features">
+                            <li>Evaluation by our expert panel</li>
+                            <li>Digital award badge if selected</li>
+                            <li>Listing on our website</li>
+                            <li>Social media mention</li>
+                        </ul>
+                        <button class="btn btn-outline select-plan" data-plan="Basic Entry">Select Plan</button>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Premium Entry</h3>
+                        <div class="price">$499<span>/product</span></div>
+                        <ul class="pricing-features">
+                            <li>All Basic features</li>
+                            <li>Featured placement on website</li>
+                            <li>In-depth product review</li>
+                            <li>Press release template</li>
+                            <li>Marketing materials package</li>
+                        </ul>
+                        <button class="btn btn-primary select-plan" data-plan="Premium Entry">Select Plan</button>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Brand Spotlight</h3>
+                        <div class="price">$899<span>/brand</span></div>
+                        <ul class="pricing-features">
+                            <li>All Premium features</li>
+                            <li>Up to 3 product entries</li>
+                            <li>Featured brand story</li>
+                            <li>Dedicated email campaign</li>
+                            <li>Interview opportunity</li>
+                        </ul>
+                        <button class="btn btn-outline select-plan" data-plan="Brand Spotlight">Select Plan</button>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="submit.html" class="btn btn-primary">Submit Before October 15th</a>
+                    <p style="margin-top: 1rem; font-style: italic;">Early bird discount available until September 30th</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase Section -->
+        <section id="product-showcase" class="section product-showcase">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Shop Award-Winning Products</h2>
+                    <p>Discover the best in natural beauty and wellness</p>
+                </div>
+                <div class="category-filters">
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="skincare">Skincare</button>
+                    <button class="filter-btn" data-filter="wellness">Wellness</button>
+                    <button class="filter-btn" data-filter="makeup">Makeup</button>
+                    <button class="filter-btn" data-filter="haircare">Haircare</button>
+                </div>
+                <div class="products-grid">
+                    <!-- Product cards will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Judges Section -->
+        <section id="judges" class="section judges">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Expert Judges</h2>
+                    <p>Meet the industry professionals evaluating your products</p>
+                </div>
+                <div class="judges-grid">
+                    <div class="judge-card">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sarah Johnson" class="judge-photo">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Naturopathic Doctor & Formulator</p>
+                        <p>15+ years experience in natural product development and holistic wellness.</p>
+                    </div>
+                    <div class="judge-card">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Elena Rodriguez" class="judge-photo">
+                        <h3>Elena Rodriguez</h3>
+                        <p>Beauty Editor & Sustainability Advocate</p>
+                        <p>Former beauty editor at Vogue with a passion for clean, sustainable beauty.</p>
+                    </div>
+                    <div class="judge-card">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="judge-photo">
+                        <h3>Michael Chen</h3>
+                        <p>Cosmetic Chemist & Educator</p>
+                        <p>Expert in product formulation with a focus on efficacy and safety.</p>
+                    </div>
+                </div>
+                <div class="section-title" style="margin-top: 4rem;">
+                    <h2>Judging Criteria</h2>
+                    <p>Our comprehensive evaluation framework</p>
+                </div>
+                <table class="criteria-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Weight</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ingredients & Purity</td>
+                            <td>30%</td>
+                            <td>Assessment of ingredient quality, sourcing, and transparency</td>
+                        </tr>
+                        <tr>
+                            <td>Efficacy & Performance</td>
+                            <td>25%</td>
+                            <td>How well the product delivers on its promises</td>
+                        </tr>
+                        <tr>
+                            <td>Sustainability & Ethics</td>
+                            <td>20%</td>
+                            <td>Environmental impact, packaging, and brand values</td>
+                        </tr>
+                        <tr>
+                            <td>User Experience</td>
+                            <td>15%</td>
+                            <td>Texture, scent, application, and overall satisfaction</td>
+                        </tr>
+                        <tr>
+                            <td>Innovation</td>
+                            <td>10%</td>
+                            <td>Unique formulation, technology, or approach</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Winners Section -->
+        <section id="winners" class="section winners">
+            <div class="container">
+                <div class="section-title">
+                    <h2>2023 Award Winners</h2>
+                    <p>Celebrating the best in natural beauty and wellness</p>
+                </div>
+                <div class="winners-carousel">
+                    <div class="carousel-track">
+                        <!-- Winner cards will be generated by JavaScript -->
+                    </div>
+                    <div class="carousel-nav">
+                        <!-- Dots will be generated by JavaScript -->
+                    </div>
+                </div>
+                <div class="spotlight-stories">
+                    <div class="section-title">
+                        <h2>Founder Spotlight</h2>
+                        <p>Hear from the innovators behind our winning products</p>
+                    </div>
+                    <div class="story-card">
+                        <div class="founder-info">
+                            <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Jessica Miller" class="founder-photo">
+                            <div>
+                                <h3>Jessica Miller</h3>
+                                <p>Founder of EarthGlow Skincare</p>
+                            </div>
+                        </div>
+                        <p>"Winning the Beauty & Wellness Awards has been transformative for our small brand. The recognition has not only boosted our sales by 40% but also opened doors to retail partnerships we'd been pursuing for years. The validation from such respected experts means everything to our mission of creating effective, earth-friendly skincare."</p>
+                    </div>
+                    <div class="story-card">
+                        <div class="founder-info">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Kim" class="founder-photo">
+                            <div>
+                                <h3>David Kim</h3>
+                                <p>Co-founder of PureBalance Supplements</p>
+                            </div>
+                        </div>
+                        <p>"As a new brand in the crowded wellness space, the Beauty & Wellness Awards gave us the credibility we needed to stand out. The detailed feedback from the judges helped us refine our formulation, and the award badge has become a key part of our marketing. We've seen a significant increase in consumer trust since winning."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="section community">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Join Our Community</h2>
+                    <p>Education, inspiration, and connection for conscious consumers</p>
+                </div>
+                <div class="community-content">
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle" style="font-size: 4rem; margin-right: 1rem;"></i>
+                            <span>Watch Our Awards Introduction Video</span>
+                        </div>
+                    </div>
+                    <div class="blog-posts">
+                        <h3>Latest from Our Blog</h3>
+                        <div class="blog-card">
+                            <h4>The Rise of Blue Beauty: Beyond Sustainability</h4>
+                            <p>Explore how brands are going beyond green to protect our oceans and water systems.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="blog-card">
+                            <h4>5 Clean Beauty Myths Debunked</h4>
+                            <p>Separating fact from fiction in the world of natural skincare and cosmetics.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="blog-card">
+                            <h4>Wellness Trends to Watch in 2024</h4>
+                            <p>From adaptogenic skincare to circadian rhythm wellness, what's next in natural living.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about our awards program</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Who can enter the Beauty & Wellness Awards?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Any brand with products in the beauty, skincare, wellness, or personal care categories can enter. Products must contain at least 90% natural ingredients and adhere to our sustainability standards.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is the judging process?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our panel of experts evaluates each product based on our comprehensive criteria, including ingredients, efficacy, sustainability, user experience, and innovation. The process takes 4-6 weeks from submission to final decision.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>When will winners be announced?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Winners are announced quarterly, with submission deadlines on January 15, April 15, July 15, and October 15. Winners are notified 2 weeks before public announcement.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How can shoppers trust your awards?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We maintain strict transparency in our judging process. All judges are industry experts with no financial ties to participating brands. Our criteria are publicly available, and we provide detailed feedback to all entrants.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Where can I purchase award-winning products?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>All award-winning products are available for purchase through the brands' websites or authorized retailers. We provide direct links to purchase pages on our product showcase section.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Beauty & Wellness Awards</h3>
+                    <p>Celebrating excellence in natural products that prioritize purity, sustainability, and effectiveness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>For Brands</h3>
+                    <ul class="footer-links">
+                        <li><a href="#why-enter">Why Enter</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pricing">Pricing & Packages</a></li>
+                        <li><a href="#judges">Judging Criteria</a></li>
+                        <li><a href="submit.html">Submit Your Product</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>For Shoppers</h3>
+                    <ul class="footer-links">
+                        <li><a href="#product-showcase">Shop Winners</a></li>
+                        <li><a href="#winners">2023 Winners</a></li>
+                        <li><a href="#judges">Our Judges</a></li>
+                        <li><a href="#community">Blog & Education</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@beautywellawards.com</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Wellness Ave, San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Beauty & Wellness Awards. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Plan Selection Modal -->
+    <div id="planModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="thank-you-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Plan Selected!</h2>
+            <p>You've selected the <span id="selectedPlan"></span> package.</p>
+            <p>You will be redirected to the submission form to complete your entry.</p>
+            <div style="margin-top: 2rem;">
+                <a href="submit.html" class="btn btn-primary">Continue to Submission</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Radiant Glow Serum",
+                category: "skincare",
+                description: "Vitamin C-rich serum for bright, even-toned skin",
+                award: "Gold Winner 2023",
+                price: "$42"
+            },
+            {
+                id: 2,
+                name: "Calm Mind Tincture",
+                category: "wellness",
+                description: "Adaptogenic blend for stress relief and mental clarity",
+                award: "Innovation Award 2023",
+                price: "$28"
+            },
+            {
+                id: 3,
+                name: "Natural Mascara",
+                category: "makeup",
+                description: "Clump-free, smudge-proof mascara with nourishing oils",
+                award: "Editor's Choice 2023",
+                price: "$24"
+            },
+            {
+                id: 4,
+                name: "Hydrating Shampoo",
+                category: "haircare",
+                description: "Sulfate-free formula for soft, manageable hair",
+                award: "Gold Winner 2023",
+                price: "$18"
+            },
+            {
+                id: 5,
+                name: "Overnight Repair Cream",
+                category: "skincare",
+                description: "Intensive nighttime treatment for skin regeneration",
+                award: "Best in Category 2023",
+                price: "$56"
+            },
+            {
+                id: 6,
+                name: "Digestive Enzymes",
+                category: "wellness",
+                description: "Plant-based enzymes for optimal digestion",
+                award: "Silver Winner 2023",
+                price: "$32"
+            },
+            {
+                id: 7,
+                name: "Lip & Cheek Tint",
+                category: "makeup",
+                description: "Multi-purpose color made from fruit pigments",
+                award: "Sustainable Beauty Award 2023",
+                price: "$22"
+            },
+            {
+                id: 8,
+                name: "Scalp Revival Treatment",
+                category: "haircare",
+                description: "Soothing treatment for dry, flaky scalp",
+                award: "Editor's Choice 2023",
+                price: "$38"
+            }
+        ];
+
+        // Winners Data for Carousel
+        const winners = [
+            {
+                id: 1,
+                name: "Pure Harmony Face Oil",
+                category: "Skincare",
+                award: "Product of the Year 2023"
+            },
+            {
+                id: 2,
+                name: "Mindful Moments CBD Spray",
+                category: "Wellness",
+                award: "Innovation Award 2023"
+            },
+            {
+                id: 3,
+                name: "Eco-Luxe Lipstick",
+                category: "Makeup",
+                award: "Sustainable Beauty Award 2023"
+            },
+            {
+                id: 4,
+                name: "Scalp Revival Treatment",
+                category: "Haircare",
+                award: "Editor's Choice 2023"
+            },
+            {
+                id: 5,
+                name: "Glow Getter Supplement",
+                category: "Wellness",
+                award: "Best New Product 2023"
+            }
+        ];
+
+        // Generate Product Cards
+        const productsGrid = document.querySelector('.products-grid');
+        
+        function displayProducts(filter = 'all') {
+            productsGrid.innerHTML = '';
+            
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(product => product.category === filter);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <i class="fas fa-spa" style="font-size: 3rem; color: var(--primary-green);"></i>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="award-badge" style="background-color: goldenrod; color: white; padding: 5px 10px; border-radius: 15px; display: inline-block; font-size: 0.8rem; margin-bottom: 10px;">${product.award}</div>
+                        <div style="font-weight: bold; margin-bottom: 10px;">${product.price}</div>
+                        <a href="#" class="buy-link">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+        }
+
+        // Initialize products
+        displayProducts();
+
+        // Filter Products
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Filter products
+                const filter = button.getAttribute('data-filter');
+                displayProducts(filter);
+            });
+        });
+
+        // Generate Winners Carousel
+        const carouselTrack = document.querySelector('.carousel-track');
+        const carouselNav = document.querySelector('.carousel-nav');
+        
+        winners.forEach((winner, index) => {
+            // Create winner card
+            const winnerCard = document.createElement('div');
+            winnerCard.className = 'winner-card';
+            winnerCard.innerHTML = `
+                <div class="product-image">
+                    <i class="fas fa-trophy" style="font-size: 3rem; color: goldenrod;"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${winner.category}</div>
+                    <h3>${winner.name}</h3>
+                    <div class="award-badge" style="background-color: goldenrod; color: white; padding: 5px 10px; border-radius: 15px; display: inline-block; font-size: 0.8rem;">${winner.award}</div>
+                    <a href="#" class="buy-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            `;
+            carouselTrack.appendChild(winnerCard);
+            
+            // Create navigation dot
+            const dot = document.createElement('div');
+            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+            dot.setAttribute('data-index', index);
+            carouselNav.appendChild(dot);
+        });
+
+        // Carousel Navigation
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        
+        function updateCarousel() {
+            const trackWidth = carouselTrack.offsetWidth;
+            const slideWidth = carouselTrack.querySelector('.winner-card').offsetWidth;
+            const gap = 32; // 2rem gap in pixels
+            
+            carouselTrack.style.transform = `translateX(-${currentSlide * (slideWidth + gap)}px)`;
+            
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentSlide = parseInt(dot.getAttribute('data-index'));
+                updateCarousel();
+            });
+        });
+
+        // Auto-advance carousel
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % winners.length;
+            updateCarousel();
+        }, 5000);
+
+        // Plan Selection Modal
+        const planModal = document.getElementById('planModal');
+        const selectedPlanSpan = document.getElementById('selectedPlan');
+        const selectPlanButtons = document.querySelectorAll('.select-plan');
+        const modalClose = document.querySelector('.modal-close');
+        
+        selectPlanButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const plan = button.getAttribute('data-plan');
+                selectedPlanSpan.textContent = plan;
+                planModal.style.display = 'flex';
+            });
+        });
+        
+        modalClose.addEventListener('click', () => {
+            planModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === planModal) {
+                planModal.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add click handlers for "Shop Now" links
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('buy-link') || e.target.parentElement.classList.contains('buy-link')) {
+                e.preventDefault();
+                alert('This is a demo site. In a real implementation, this would redirect to the product purchase page.');
+            }
+        });
+    </script>
+</body>
+</html>
