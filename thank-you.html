@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Beauty & Wellness Awards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse the same CSS from the main page */
+        /* ... (all the CSS from above) ... */
+        
+        .thank-you {
+            text-align: center;
+            padding: 5rem 0;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thank-you-content {
+            max-width: 600px;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-spa"></i> Beauty & Wellness Awards
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#why-enter">For Brands</a></li>
+                    <li><a href="index.html#product-showcase">For Shoppers</a></li>
+                    <li><a href="index.html#judges">Judges & Criteria</a></li>
+                    <li><a href="index.html#winners">Winners</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="submit.html" class="btn btn-outline">Submit Product</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Thank You Content -->
+    <section class="thank-you">
+        <div class="container">
+            <div class="thank-you-content">
+                <div class="thank-you-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1>Thank You for Your Submission!</h1>
+                <p>We've received your product entry for the Beauty & Wellness Awards.</p>
+                <p>Our team will review your submission and contact you within 3 business days with next steps, including information about sending product samples for judging.</p>
+                <p>In the meantime, feel free to explore our website to learn more about our judging process and past winners.</p>
+                <div style="margin-top: 2rem;">
+                    <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+                    <a href="index.html#winners" class="btn btn-outline" style="margin-left: 1rem;">View Past Winners</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer>
+        <!-- ... (same footer content as index.html) ... -->
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
