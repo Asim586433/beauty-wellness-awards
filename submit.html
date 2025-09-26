@@ -6,12 +6,604 @@
     <title>Submit Your Product | Beauty & Wellness Awards</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reuse the same CSS from the main page */
-        /* ... (all the CSS from above) ... */
+        :root {
+            --primary-green: #8a9a8a;
+            --light-green: #e8efe8;
+            --tan: #d4c9b9;
+            --dark-tan: #b8a992;
+            --linen: #f5f1eb;
+            --text-dark: #3a3a3a;
+            --text-light: #6a6a6a;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--linen);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; color: var(--primary-green); }
+        h3 { font-size: 1.5rem; }
+
+        p { margin-bottom: 1rem; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section { padding: 5rem 0; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-tan);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: var(--tan);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--dark-tan);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i { margin-right: 10px; }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--primary-green); }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Submit Hero Section */
+        .submit-hero {
+            background: linear-gradient(rgba(212, 201, 185, 0.8), rgba(138, 154, 138, 0.8)), url('https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-dark);
+            margin-top: 70px;
+        }
+
+        .submit-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .submit-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .submit-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Form Styles */
+        .form-section {
+            background-color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .form-container {
+            background-color: var(--linen);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--tan);
+        }
+
+        .form-header h2 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-progress::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--tan);
+            z-index: 1;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--tan);
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .progress-step.active .step-number {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--tan);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(138, 154, 138, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--tan);
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checkbox-group input {
+            width: auto;
+            margin-top: 5px;
+        }
+
+        .file-upload {
+            border: 2px dashed var(--tan);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary-green);
+            background-color: rgba(138, 154, 138, 0.05);
+        }
+
+        .file-upload i {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .uploaded-files {
+            margin-top: 1rem;
+        }
+
+        .uploaded-file {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-green);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .uploaded-file i {
+            margin-right: 10px;
+            color: var(--primary-green);
+        }
+
+        .file-name {
+            flex: 1;
+        }
+
+        .remove-file {
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* Package Selection */
+        .package-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .package-option {
+            border: 2px solid var(--tan);
+            border-radius: 10px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .package-option:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
+        .package-option.selected {
+            border-color: var(--primary-green);
+            background-color: rgba(138, 154, 138, 0.05);
+        }
+
+        .package-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-green);
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .package-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .package-features li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .package-features li i {
+            color: var(--primary-green);
+            margin-right: 10px;
+        }
+
+        /* Thank You Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            color: var(--tan);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a {
+            color: var(--light-green);
+            transition: var(--transition);
+        }
+        .footer-links a:hover { color: var(--tan); }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover { background-color: var(--primary-green); }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--light-green);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active { display: flex; }
+            .nav-links li {
+                margin: 0;
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid var(--tan);
+            }
+            
+            .mobile-menu { display: block; }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .package-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container {
+                padding: 2rem;
+            }
+            
+            .submit-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section { padding: 3rem 0; }
+            .form-progress {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .form-progress::before {
+                display: none;
+            }
+            
+            .progress-step {
+                flex-direction: row;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header (same as index.html) -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
@@ -34,100 +626,287 @@
         </div>
     </header>
 
-    <!-- Submit Product Form -->
-    <section class="section" style="margin-top: 80px;">
+    <!-- Submit Hero Section -->
+    <section class="submit-hero">
         <div class="container">
-            <div class="section-title">
-                <h2>Submit Your Product</h2>
-                <p>Complete the form below to enter your product in the Beauty & Wellness Awards</p>
+            <div class="submit-hero-content">
+                <h1>Submit Your Product for the 2023 Awards</h1>
+                <p>Join the prestigious Beauty & Wellness Awards and get the recognition your product deserves</p>
             </div>
-            
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
             <div class="form-container">
+                <div class="form-header">
+                    <h2>Product Submission Form</h2>
+                    <p>Complete all steps to submit your product for consideration</p>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Brand Info</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Product Details</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Package Selection</div>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Review & Submit</div>
+                    </div>
+                </div>
+
+                <!-- Multi-Step Form -->
                 <form id="productSubmissionForm">
-                    <div class="form-group">
-                        <label for="brandName">Brand Name *</label>
-                        <input type="text" id="brandName" name="brandName" required>
+                    <!-- Step 1: Brand Information -->
+                    <div class="form-step active" id="step1">
+                        <h3>Brand Information</h3>
+                        <div class="form-group">
+                            <label for="brandName">Brand Name *</label>
+                            <input type="text" id="brandName" name="brandName" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Contact Name *</label>
+                                <input type="text" id="contactName" name="contactName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="jobTitle">Job Title *</label>
+                                <input type="text" id="jobTitle" name="jobTitle" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="website">Website</label>
+                            <input type="url" id="website" name="website" placeholder="https://">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <div></div> <!-- Empty div for spacing -->
+                            <button type="button" class="btn btn-primary next-step" data-next="2">Next Step</button>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="contactName">Contact Name *</label>
-                        <input type="text" id="contactName" name="contactName" required>
+
+                    <!-- Step 2: Product Details -->
+                    <div class="form-step" id="step2">
+                        <h3>Product Details</h3>
+                        <div class="form-group">
+                            <label for="productName">Product Name *</label>
+                            <input type="text" id="productName" name="productName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="productCategory">Product Category *</label>
+                            <select id="productCategory" name="productCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="skincare">Skincare</option>
+                                <option value="wellness">Wellness</option>
+                                <option value="makeup">Makeup</option>
+                                <option value="haircare">Haircare</option>
+                                <option value="bodycare">Body Care</option>
+                                <option value="fragrance">Fragrance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="productDescription">Product Description *</label>
+                            <textarea id="productDescription" name="productDescription" rows="4" required placeholder="Describe your product, its benefits, and target audience"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ingredients">Key Ingredients & Benefits *</label>
+                            <textarea id="ingredients" name="ingredients" rows="3" required placeholder="List the main active ingredients and their benefits"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sustainability">Sustainability Features</label>
+                            <textarea id="sustainability" name="sustainability" rows="3" placeholder="Describe any eco-friendly packaging, ethical sourcing, or sustainability initiatives"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Product Images</label>
+                            <div class="file-upload" id="fileUpload">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Click to upload product images or drag and drop</p>
+                                <p class="form-note">Maximum 5 images. JPG, PNG, or GIF. Max 5MB each.</p>
+                                <input type="file" class="file-input" id="productImages" multiple accept="image/*">
+                            </div>
+                            <div class="uploaded-files" id="uploadedFiles"></div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step" data-prev="1">Previous</button>
+                            <button type="button" class="btn btn-primary next-step" data-next="3">Next Step</button>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
+
+                    <!-- Step 3: Package Selection -->
+                    <div class="form-step" id="step3">
+                        <h3>Select Your Package</h3>
+                        <p>Choose the package that best fits your needs. All packages include expert evaluation and a digital award badge if selected.</p>
+                        
+                        <div class="package-options">
+                            <div class="package-option" data-package="basic">
+                                <div class="package-name">Basic Entry</div>
+                                <div class="package-price">$299</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check"></i> Evaluation by expert panel</li>
+                                    <li><i class="fas fa-check"></i> Digital award badge</li>
+                                    <li><i class="fas fa-check"></i> Website listing</li>
+                                    <li><i class="fas fa-check"></i> Social media mention</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="package-option selected" data-package="premium">
+                                <div class="package-name">Premium Entry</div>
+                                <div class="package-price">$499</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check"></i> All Basic features</li>
+                                    <li><i class="fas fa-check"></i> Featured placement</li>
+                                    <li><i class="fas fa-check"></i> In-depth product review</li>
+                                    <li><i class="fas fa-check"></i> Press release template</li>
+                                    <li><i class="fas fa-check"></i> Marketing materials</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="package-option" data-package="spotlight">
+                                <div class="package-name">Brand Spotlight</div>
+                                <div class="package-price">$899</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check"></i> All Premium features</li>
+                                    <li><i class="fas fa-check"></i> Up to 3 product entries</li>
+                                    <li><i class="fas fa-check"></i> Featured brand story</li>
+                                    <li><i class="fas fa-check"></i> Dedicated email campaign</li>
+                                    <li><i class="fas fa-check"></i> Interview opportunity</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" id="selectedPackage" name="package" value="premium">
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step" data-prev="2">Previous</button>
+                            <button type="button" class="btn btn-primary next-step" data-next="4">Next Step</button>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="productName">Product Name *</label>
-                        <input type="text" id="productName" name="productName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="productCategory">Product Category *</label>
-                        <select id="productCategory" name="productCategory" required>
-                            <option value="">Select a category</option>
-                            <option value="skincare">Skincare</option>
-                            <option value="wellness">Wellness</option>
-                            <option value="makeup">Makeup</option>
-                            <option value="haircare">Haircare</option>
-                            <option value="bodycare">Body Care</option>
-                            <option value="fragrance">Fragrance</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="productDescription">Product Description *</label>
-                        <textarea id="productDescription" name="productDescription" rows="4" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="ingredients">Key Ingredients *</label>
-                        <textarea id="ingredients" name="ingredients" rows="3" required></textarea>
-                        <small>Please list the main active ingredients and their benefits</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="sustainability">Sustainability Features</label>
-                        <textarea id="sustainability" name="sustainability" rows="3"></textarea>
-                        <small>Describe any eco-friendly packaging, ethical sourcing, or sustainability initiatives</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="package">Select Your Package *</label>
-                        <select id="package" name="package" required>
-                            <option value="">Select a package</option>
-                            <option value="basic">Basic Entry - $299</option>
-                            <option value="premium">Premium Entry - $499</option>
-                            <option value="spotlight">Brand Spotlight - $899</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="agreeTerms" required>
-                            I agree to the <a href="#">Terms and Conditions</a> and understand that product samples will be required for judging.
-                        </label>
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary">Submit Your Entry</button>
+
+                    <!-- Step 4: Review & Submit -->
+                    <div class="form-step" id="step4">
+                        <h3>Review & Submit</h3>
+                        <p>Please review your information before submitting. You'll receive a confirmation email with next steps.</p>
+                        
+                        <div class="form-group">
+                            <div class="review-section">
+                                <h4>Brand Information</h4>
+                                <div id="reviewBrandInfo"></div>
+                            </div>
+                            
+                            <div class="review-section">
+                                <h4>Product Details</h4>
+                                <div id="reviewProductInfo"></div>
+                            </div>
+                            
+                            <div class="review-section">
+                                <h4>Selected Package</h4>
+                                <div id="reviewPackageInfo"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                <label for="agreeTerms">I agree to the <a href="#">Terms and Conditions</a> and understand that product samples will be required for judging. *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">Yes, I would like to receive updates about the Beauty & Wellness Awards and industry news.</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step" data-prev="3">Previous</button>
+                            <button type="submit" class="btn btn-primary">Submit Your Entry</button>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer (same as index.html) -->
+    <!-- Footer -->
     <footer>
-        <!-- ... (same footer content as index.html) ... -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Beauty & Wellness Awards</h3>
+                    <p>Celebrating excellence in natural products that prioritize purity, sustainability, and effectiveness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>For Brands</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#why-enter">Why Enter</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#pricing">Pricing & Packages</a></li>
+                        <li><a href="index.html#judges">Judging Criteria</a></li>
+                        <li><a href="submit.html">Submit Your Product</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>For Shoppers</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#product-showcase">Shop Winners</a></li>
+                        <li><a href="index.html#winners">2023 Winners</a></li>
+                        <li><a href="index.html#judges">Our Judges</a></li>
+                        <li><a href="index.html#community">Blog & Education</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@beautywellawards.com</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Wellness Ave, San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Beauty & Wellness Awards. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <!-- Thank You Modal -->
@@ -139,7 +918,7 @@
             </div>
             <h2>Thank You for Your Submission!</h2>
             <p>We've received your product entry for the Beauty & Wellness Awards.</p>
-            <p>Our team will review your submission and contact you within 3 business days with next steps.</p>
+            <p>Our team will review your submission and contact you within 3 business days with next steps, including information about sending product samples for judging.</p>
             <div style="margin-top: 2rem;">
                 <a href="index.html" class="btn btn-primary">Return to Homepage</a>
             </div>
@@ -152,11 +931,177 @@
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        // Form Submission
+        // Multi-Step Form Functionality
+        const formSteps = document.querySelectorAll('.form-step');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const nextButtons = document.querySelectorAll('.next-step');
+        const prevButtons = document.querySelectorAll('.prev-step');
         const form = document.getElementById('productSubmissionForm');
         const thankYouModal = document.getElementById('thankYouModal');
         const modalClose = document.querySelector('.modal-close');
         
+        // Package Selection
+        const packageOptions = document.querySelectorAll('.package-option');
+        const selectedPackageInput = document.getElementById('selectedPackage');
+        
+        packageOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                packageOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedPackageInput.value = this.getAttribute('data-package');
+            });
+        });
+        
+        // File Upload
+        const fileUpload = document.getElementById('fileUpload');
+        const fileInput = document.getElementById('productImages');
+        const uploadedFilesContainer = document.getElementById('uploadedFiles');
+        
+        fileUpload.addEventListener('click', function() {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', function() {
+            uploadedFilesContainer.innerHTML = '';
+            if (fileInput.files.length > 0) {
+                for (let i = 0; i < fileInput.files.length; i++) {
+                    const file = fileInput.files[i];
+                    const fileElement = document.createElement('div');
+                    fileElement.className = 'uploaded-file';
+                    fileElement.innerHTML = `
+                        <i class="fas fa-file-image"></i>
+                        <div class="file-name">${file.name}</div>
+                        <div class="remove-file"><i class="fas fa-times"></i></div>
+                    `;
+                    uploadedFilesContainer.appendChild(fileElement);
+                    
+                    // Add remove functionality
+                    fileElement.querySelector('.remove-file').addEventListener('click', function() {
+                        fileElement.remove();
+                        // In a real implementation, you would need to update the file input
+                    });
+                }
+            }
+        });
+        
+        // Allow drag and drop
+        fileUpload.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.style.borderColor = 'var(--primary-green)';
+            this.style.backgroundColor = 'rgba(138, 154, 138, 0.1)';
+        });
+        
+        fileUpload.addEventListener('dragleave', function() {
+            this.style.borderColor = 'var(--tan)';
+            this.style.backgroundColor = 'transparent';
+        });
+        
+        fileUpload.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.style.borderColor = 'var(--tan)';
+            this.style.backgroundColor = 'transparent';
+            fileInput.files = e.dataTransfer.files;
+            // Trigger change event to update UI
+            const event = new Event('change');
+            fileInput.dispatchEvent(event);
+        });
+        
+        // Next Step Buttons
+        nextButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const currentStep = document.querySelector('.form-step.active');
+                const nextStepId = this.getAttribute('data-next');
+                const nextStep = document.getElementById('step' + nextStepId);
+                
+                // Validate current step before proceeding
+                if (validateStep(currentStep.id)) {
+                    // Update progress indicator
+                    progressSteps.forEach(step => {
+                        if (parseInt(step.getAttribute('data-step')) <= parseInt(nextStepId)) {
+                            step.classList.add('active');
+                        } else {
+                            step.classList.remove('active');
+                        }
+                    });
+                    
+                    // Switch to next step
+                    currentStep.classList.remove('active');
+                    nextStep.classList.add('active');
+                    
+                    // If moving to final step, update review
+                    if (nextStepId === '4') {
+                        updateReview();
+                    }
+                }
+            });
+        });
+        
+        // Previous Step Buttons
+        prevButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const currentStep = document.querySelector('.form-step.active');
+                const prevStepId = this.getAttribute('data-prev');
+                const prevStep = document.getElementById('step' + prevStepId);
+                
+                // Update progress indicator
+                progressSteps.forEach(step => {
+                    if (parseInt(step.getAttribute('data-step')) <= parseInt(prevStepId)) {
+                        step.classList.add('active');
+                    } else {
+                        step.classList.remove('active');
+                    }
+                });
+                
+                // Switch to previous step
+                currentStep.classList.remove('active');
+                prevStep.classList.add('active');
+            });
+        });
+        
+        // Form Validation for Current Step
+        function validateStep(stepId) {
+            const step = document.getElementById(stepId);
+            const inputs = step.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = '#e74c3c';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+            
+            return isValid;
+        }
+        
+        // Update Review Section
+        function updateReview() {
+            // Brand Info
+            document.getElementById('reviewBrandInfo').innerHTML = `
+                <p><strong>Brand Name:</strong> ${document.getElementById('brandName').value}</p>
+                <p><strong>Contact:</strong> ${document.getElementById('contactName').value} (${document.getElementById('jobTitle').value})</p>
+                <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
+                <p><strong>Phone:</strong> ${document.getElementById('phone').value || 'Not provided'}</p>
+            `;
+            
+            // Product Info
+            document.getElementById('reviewProductInfo').innerHTML = `
+                <p><strong>Product Name:</strong> ${document.getElementById('productName').value}</p>
+                <p><strong>Category:</strong> ${document.getElementById('productCategory').options[document.getElementById('productCategory').selectedIndex].text}</p>
+                <p><strong>Description:</strong> ${document.getElementById('productDescription').value}</p>
+            `;
+            
+            // Package Info
+            const packageName = document.querySelector('.package-option.selected .package-name').textContent;
+            const packagePrice = document.querySelector('.package-option.selected .package-price').textContent;
+            document.getElementById('reviewPackageInfo').innerHTML = `
+                <p><strong>Package:</strong> ${packageName} - ${packagePrice}</p>
+            `;
+        }
+        
+        // Form Submission
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -166,6 +1111,7 @@
             thankYouModal.style.display = 'flex';
         });
         
+        // Modal Close
         modalClose.addEventListener('click', () => {
             thankYouModal.style.display = 'none';
         });
