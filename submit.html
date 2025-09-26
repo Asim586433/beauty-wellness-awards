@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Product | Beauty & Wellness Awards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse the same CSS from the main page */
+        /* ... (all the CSS from above) ... */
+    </style>
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-spa"></i> Beauty & Wellness Awards
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#why-enter">For Brands</a></li>
+                    <li><a href="index.html#product-showcase">For Shoppers</a></li>
+                    <li><a href="index.html#judges">Judges & Criteria</a></li>
+                    <li><a href="index.html#winners">Winners</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="submit.html" class="btn btn-outline">Submit Product</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Submit Product Form -->
+    <section class="section" style="margin-top: 80px;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Submit Your Product</h2>
+                <p>Complete the form below to enter your product in the Beauty & Wellness Awards</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="productSubmissionForm">
+                    <div class="form-group">
+                        <label for="brandName">Brand Name *</label>
+                        <input type="text" id="brandName" name="brandName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactName">Contact Name *</label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productName">Product Name *</label>
+                        <input type="text" id="productName" name="productName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productCategory">Product Category *</label>
+                        <select id="productCategory" name="productCategory" required>
+                            <option value="">Select a category</option>
+                            <option value="skincare">Skincare</option>
+                            <option value="wellness">Wellness</option>
+                            <option value="makeup">Makeup</option>
+                            <option value="haircare">Haircare</option>
+                            <option value="bodycare">Body Care</option>
+                            <option value="fragrance">Fragrance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productDescription">Product Description *</label>
+                        <textarea id="productDescription" name="productDescription" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ingredients">Key Ingredients *</label>
+                        <textarea id="ingredients" name="ingredients" rows="3" required></textarea>
+                        <small>Please list the main active ingredients and their benefits</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sustainability">Sustainability Features</label>
+                        <textarea id="sustainability" name="sustainability" rows="3"></textarea>
+                        <small>Describe any eco-friendly packaging, ethical sourcing, or sustainability initiatives</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="package">Select Your Package *</label>
+                        <select id="package" name="package" required>
+                            <option value="">Select a package</option>
+                            <option value="basic">Basic Entry - $299</option>
+                            <option value="premium">Premium Entry - $499</option>
+                            <option value="spotlight">Brand Spotlight - $899</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="agreeTerms" required>
+                            I agree to the <a href="#">Terms and Conditions</a> and understand that product samples will be required for judging.
+                        </label>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Submit Your Entry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer>
+        <!-- ... (same footer content as index.html) ... -->
+    </footer>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="thank-you-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Thank You for Your Submission!</h2>
+            <p>We've received your product entry for the Beauty & Wellness Awards.</p>
+            <p>Our team will review your submission and contact you within 3 business days with next steps.</p>
+            <div style="margin-top: 2rem;">
+                <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Form Submission
+        const form = document.getElementById('productSubmissionForm');
+        const thankYouModal = document.getElementById('thankYouModal');
+        const modalClose = document.querySelector('.modal-close');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            // For this demo, we'll just show the thank you modal
+            
+            thankYouModal.style.display = 'flex';
+        });
+        
+        modalClose.addEventListener('click', () => {
+            thankYouModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === thankYouModal) {
+                thankYouModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
